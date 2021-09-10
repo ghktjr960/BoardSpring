@@ -13,7 +13,7 @@ public class MemberDaoImpl implements MemberDao {
 	
 	@Override
 	public MemberVo selectId(String id) {
-		return sqlSessionTemplate.selectOne(id);
+		return sqlSessionTemplate.selectOne("selectId", id);
 	}
 	
 	@Override
@@ -28,6 +28,6 @@ public class MemberDaoImpl implements MemberDao {
 	
 	@Override
 	public void delete(String id) {
-		sqlSessionTemplate.delete(id);
+		sqlSessionTemplate.delete("delete", id);
 	}
 }

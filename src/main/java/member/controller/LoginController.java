@@ -36,7 +36,7 @@ public class LoginController {
 			loginCommand.setId(cookie.getValue());
 			loginCommand.setRememberId(true);
 		}
-		return "login/loginForm";
+		return "login/form";
 	}
 	
 	@PostMapping
@@ -45,7 +45,7 @@ public class LoginController {
 		
 		new LoginCommandValidator().validate(loginCommand, errors);
 		if(errors.hasErrors()) {
-			return "login/loginForm";
+			return "login/form";
 		}
 		try {
 				
@@ -61,10 +61,10 @@ public class LoginController {
 			}
 			response.addCookie(rememberCookie);
 			
-			return "login/loginSuccess";
+			return "login/success";
 		} catch (IdPasswordNotMatchingException e) {
 			errors.reject("IdPasswordMatching");
-			return "login/loginForm";
+			return "login/form";
 		}
 	}
 	

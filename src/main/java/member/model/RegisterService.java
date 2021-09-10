@@ -10,10 +10,12 @@ public class RegisterService {
 	}
 	
 	public void regist(RegisterRequest regq) {
+		System.out.println("RegisterService : regist(RegisterRequest regq)");
 		MemberVo memberCheck = memberDao.selectId(regq.getId());
 		if(memberCheck != null) {
 			throw new AlreadyExistingMemberException(regq.getId() + "은 이미 존재하는 아이디입니다.");
 		} else {
+			System.out.println(regq.getBirthday());
 			MemberVo newVo = new MemberVo(
 									regq.getId(), 
 									regq.getPassword(), 

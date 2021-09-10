@@ -17,13 +17,13 @@
 	
 	<mvc:view-controller path="/" view-name="main"/>
 	
-	<bean class="member.controller.LoginController">
-		<property name="authService" ref="authService"/>
-	</bean>  
-	
 	<bean class="member.controller.RegisterController">
 		<property name="registerService" ref="registerService"/>
 	</bean>
+	
+	<bean class="member.controller.LoginController">
+		<property name="authService" ref="authService"/>
+	</bean>  
 	
 	<bean class="member.controller.LogoutController"/>
 </beans>

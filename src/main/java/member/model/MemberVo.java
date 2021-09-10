@@ -12,6 +12,10 @@ public class MemberVo {
 	private String email;
 	private Date regdate;
 
+	public MemberVo() {
+		
+	}
+	
 	public MemberVo(String id, String password, Date birthday, String name, String gender, String email, Date regdate) {
 		this.id = id;
 		this.password = password;

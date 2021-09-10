@@ -2,11 +2,14 @@ package member.model;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class RegisterRequest {
 	private String id;
 	private String password;
 	private String confirmPassword;
 	private String name;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date birthday;
 	private String gender;
 	private String email;

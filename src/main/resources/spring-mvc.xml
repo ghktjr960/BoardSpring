@@ -22,9 +22,6 @@
 	<mvc:view-resolvers>
 		<mvc:jsp prefix="/WEB-INF/view/"/>
 	</mvc:view-resolvers>
-	<!-- 
-		examspring08을 보면 suffix=".jsp"가 작성되어 있는데 	<mvc:view-resolvers>태그에서
-		default값으로 suffix가 지정되어 있기 때문에 따로 작성할 필요가 없다.
 	
 	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basenames">
@@ -34,7 +31,6 @@
 		</property>
 		<property name="defaultEncoding" value="UTF-8"/>
 	</bean>
-	-->
 
 </beans>
 

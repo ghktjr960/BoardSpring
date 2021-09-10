@@ -14,5 +14,6 @@ public class LoginCommandValidator implements Validator{
 	public void validate(Object target, Errors errors) {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "id", "required");
 		ValidationUtils.rejectIfEmpty(errors, "password", "required");
+		
 	}
 }

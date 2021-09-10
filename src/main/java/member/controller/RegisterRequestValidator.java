@@ -30,7 +30,11 @@ public class RegisterRequestValidator implements Validator{
 	@Override
 	public void validate(Object target, Errors errors) {
 		System.out.println("validate(Object target, Errors errors)");
+		
 		RegisterRequest regq = (RegisterRequest) target;
+		
+		System.out.println("생년월일 뽑아보기 : "+regq.getBirthday());
+		
 		if(regq.getEmail() == null || regq.getEmail().trim().isEmpty()) {
 			errors.rejectValue("email", "required");
 		} else {
@@ -39,7 +43,9 @@ public class RegisterRequestValidator implements Validator{
 				errors.rejectValue("email", "bad");
 			}
 		}
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "id", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "birthday", "required");
 		ValidationUtils.rejectIfEmpty(errors, "password", "required");
 		ValidationUtils.rejectIfEmpty(errors, "confirmPassword", "required");
 		if(!regq.getPassword().isEmpty()) {
