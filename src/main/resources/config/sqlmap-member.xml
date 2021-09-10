@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="memberDao">
+	<select id="selectId" parameterMap="String" resultType="memberVo">
+		select * from MEMBER where = #{id}
+	</select>
+	
+	<insert id="insert" parameterType="memberVo">
+		insert into MEMBER values(MEMBER_SEQ.nextval, #{id}, #{password}, #{name}, #{birthday}, #{gender}, #{email}, #{regdate})	
+	</insert>
+	
+	<update id="update" parameterType="memberVo">
+		update MEMBER set 
+		PASSWORD = #{password}, NAME = #{name}, BIRTHDAY = #{birthday}, EMAIL = #{email} 
+		where ID = #{id}
+	</update>
+	
+	<delete id="delete" parameterType="memberVo">
+		delete from MEMBER where ID = #{id} and PASSWORD = #{password}
+	</delete>
+</mapper>
