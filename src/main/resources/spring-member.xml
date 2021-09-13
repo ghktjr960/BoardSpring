@@ -67,5 +67,9 @@
 		<property name="memberDao" ref="memberDao"/>
 	</bean>
 	
+	<bean id="deleteMemberService" class="member.model.DeleteMemberService">
+		<property name="memberDao" ref="memberDao"/>
+	</bean>
+	
 	
 </beans>

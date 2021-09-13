@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import member.model.AuthInfo;
 import member.model.AuthService;
 import member.model.IdPasswordNotMatchingException;
+import member.model.MemberNotFoundException;
 
 @Controller
 @RequestMapping("/login")
@@ -64,6 +65,9 @@ public class LoginController {
 			return "login/success";
 		} catch (IdPasswordNotMatchingException e) {
 			errors.reject("IdPasswordMatching");
+			return "login/form";
+		} catch (MemberNotFoundException e) {
+			errors.reject("MemberNotFound");
 			return "login/form";
 		}
 	}

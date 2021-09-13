@@ -7,20 +7,8 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import member.model.RegisterRequest;
 
 public class ChangeMemberInfoCommandValidator implements Validator{
-//	@Override
-//	public boolean supports(Class<?> arg0) {
-//		return ChangeMemberInfoCommand.class.isAssignableFrom(arg0);
-//	}
-//	@Override
-//	public void validate(Object target, Errors errors) {
-//		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "id", "required");
-//		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "required");
-//		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "required");
-//		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "birthday", "required");
-//	}
 	
 	private static final String emailRegExp = 
 			"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";

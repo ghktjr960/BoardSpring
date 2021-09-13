@@ -27,22 +27,22 @@ public class ChangePwdController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String changePwdForm(@ModelAttribute("pwdCommand")ChangePwdCommand pwdcmd) {
-		return "edit/changePwdForm";
+		return "/edit/changePwdForm";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public String changePwdSubmit(@ModelAttribute("pwdCommand")ChangePwdCommand pwdCmd, Errors errors, HttpSession session) {
 		if(errors.hasErrors()) {
-			return "edit/changePwdForm";
+			return "/edit/changePwdForm";
 		}
 		AuthInfo authInfo = (AuthInfo) session.getAttribute("authInfo");
 		try {
 			changePwdService.changePwd(authInfo.getId(), pwdCmd.getCurrentPwd(), pwdCmd.getNewPwd());
-			return "edit/changePwdSuccess";
+			return "/edit/changePwdSuccess";
 		} catch(IdPasswordNotMatchingException e) {
 			e.printStackTrace();
 			errors.rejectValue("currentPwd", "notMatching");
-			return "edit/changePwdForm";
+			return "/edit/changePwdForm";
 		}
 	}
 }

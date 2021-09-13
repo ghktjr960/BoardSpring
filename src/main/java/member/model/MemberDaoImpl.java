@@ -33,7 +33,7 @@ public class MemberDaoImpl implements MemberDao {
 	}
 	
 	@Override
-	public void delete(String id) {
-		sqlSessionTemplate.delete("delete", id);
+	public void delete(MemberVo vo) {
+		sqlSessionTemplate.delete("delete", vo);
 	}
 }

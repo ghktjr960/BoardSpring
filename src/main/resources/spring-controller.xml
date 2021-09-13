@@ -39,6 +39,10 @@
 		<property name="changeMemberInfoService" ref="changeMemberInfoService" />
 	</bean>
 	
+	<bean class="member.controller.DeleteMemberController">
+		<property name="deleteMemberService" ref="deleteMemberService" />
+	</bean>
+	
 </beans>
 
 

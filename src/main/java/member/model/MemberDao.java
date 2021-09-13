@@ -14,5 +14,5 @@ public interface MemberDao {
 	public void updatePwd(MemberVo vo);
 
 	// 회원 탈퇴
-	public void delete(String id);
+	public void delete(MemberVo vo);
 }

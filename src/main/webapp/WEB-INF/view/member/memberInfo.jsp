@@ -29,6 +29,7 @@
 	<button onclick="window.location='<c:url value="/"/>'"><spring:message code="go.main"/></button>
 	<button onclick="window.location='<c:url value="/edit/changePassword"/>'"><spring:message code="change.pwd.title"/></button>
 	<button onclick="window.location='<c:url value="/edit/changeMemberInfo"/>'"><spring:message code="change.memberInfo.title"/></button>
+	<button onclick="window.location='<c:url value="/deleteMember"/>'"><spring:message code="delete.member"/></button>
 	
 	
 	
