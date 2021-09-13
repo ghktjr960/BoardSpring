@@ -58,4 +58,14 @@
 	<bean id="registerService" class="member.model.RegisterService">
 		<constructor-arg ref="memberDao"/>
 	</bean>
+	
+	<bean id="changePwdService" class="member.model.ChangePwdService">
+		<property name="memberDao" ref="memberDao"/>
+	</bean>
+	
+	<bean id="changeMemberInfoService" class="member.model.ChangeMemberInfoService">
+		<property name="memberDao" ref="memberDao"/>
+	</bean>
+	
+	
 </beans>

@@ -96,7 +96,22 @@ public class MemberVo {
 				+ name + ", gender=" + gender + ", email=" + email + ", regdate=" + regdate + "]";
 	}
 
+	public void changePwd(String currentPwd, String newPwd) {
+		if(matchPwd(currentPwd)) {
+			this.password = newPwd;
+		} else {
+			throw new IdPasswordNotMatchingException();
+		}
+	}
 	
+	public boolean matchPwd(String currentPwd) {
+		return this.password.equals(currentPwd);
+	}
 	
+	public void changeMemberInfo(String name, String email, Date birthday) {
+		this.name = name;
+		this.email = email;
+		this.birthday = birthday;
+	}
 
 }

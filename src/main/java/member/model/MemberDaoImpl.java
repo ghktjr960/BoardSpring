@@ -22,8 +22,14 @@ public class MemberDaoImpl implements MemberDao {
 	}
 	
 	@Override
-	public void update(MemberVo vo) {
-		sqlSessionTemplate.update("update", vo);
+	public void updateInfo(MemberVo vo) {
+		sqlSessionTemplate.update("updateMemberInfo", vo);
+	}
+	
+	@Override
+	public void updatePwd(MemberVo vo) {
+		sqlSessionTemplate.update("updateMemberPwd", vo);
+		
 	}
 	
 	@Override

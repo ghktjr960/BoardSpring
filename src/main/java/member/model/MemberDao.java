@@ -8,8 +8,11 @@ public interface MemberDao {
 	public void insert(MemberVo vo);
 	
 	// 회원정보 수정
-	public void update(MemberVo vo);
+	public void updateInfo(MemberVo vo);
 	
+	// 비밀번호 변경
+	public void updatePwd(MemberVo vo);
+
 	// 회원 탈퇴
 	public void delete(String id);
 }

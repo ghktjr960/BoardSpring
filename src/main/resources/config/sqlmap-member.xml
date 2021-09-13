@@ -11,10 +11,14 @@
 		insert into MEMBER values(MEMBER_SEQ.nextval, #{id}, #{password}, #{name}, #{birthday}, #{gender}, #{email}, #{regdate})	
 	</insert>
 	
-	<update id="update" parameterType="memberVo">
+	<update id="updateMemberInfo" parameterType="memberVo">
 		update MEMBER set 
-		PASSWORD = #{password}, NAME = #{name}, BIRTHDAY = #{birthday}, EMAIL = #{email} 
+		NAME = #{name}, BIRTHDAY = #{birthday}, EMAIL = #{email} 
 		where ID = #{id}
+	</update>
+
+	<update id="updateMemberPwd" parameterType="memberVo">
+		update MEMBER set PASSWORD = #{password} where ID = #{id}
 	</update>
 	
 	<delete id="delete" parameterType="memberVo">

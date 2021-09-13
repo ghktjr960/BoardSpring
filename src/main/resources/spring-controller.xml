@@ -26,6 +26,19 @@
 	</bean>  
 	
 	<bean class="member.controller.LogoutController"/>
+	
+	<bean class="member.controller.MemberInfoController">
+		<property name="memberDao" ref="memberDao" />
+	</bean>
+	
+	<bean class="member.controller.ChangePwdController">
+		<property name="changePwdService" ref="changePwdService" />
+	</bean>
+	
+	<bean class="member.controller.ChangeMemberInfoController">
+		<property name="changeMemberInfoService" ref="changeMemberInfoService" />
+	</bean>
+	
 </beans>
 
 

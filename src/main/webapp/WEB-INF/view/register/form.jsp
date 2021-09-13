@@ -15,7 +15,7 @@
 	<p>
 		<label>
 		<b><spring:message code="id"/></b><br>
-		<form:input path="id"/>
+		<form:input path="id" />
 		<form:errors path="id" />
 		</label>
 	</p>

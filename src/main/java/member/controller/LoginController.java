@@ -31,7 +31,7 @@ public class LoginController {
 	}
 
 	@RequestMapping(method=RequestMethod.GET)
-	public String form(LoginCommand loginCommand, @CookieValue(value="REMEMBER", required=false)Cookie cookie) {
+	public String loginForm(LoginCommand loginCommand, @CookieValue(value="REMEMBER", required=false)Cookie cookie) {
 		if(cookie != null) {
 			loginCommand.setId(cookie.getValue());
 			loginCommand.setRememberId(true);
@@ -40,7 +40,7 @@ public class LoginController {
 	}
 	
 	@PostMapping
-	public String submit(LoginCommand loginCommand, Errors errors, HttpSession session, 
+	public String loginSubmit(LoginCommand loginCommand, Errors errors, HttpSession session, 
 			HttpServletResponse response) {
 		
 		new LoginCommandValidator().validate(loginCommand, errors);

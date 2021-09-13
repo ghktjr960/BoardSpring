@@ -19,7 +19,7 @@
 	<c:if test="${!empty authInfo }">
 	<p>${authInfo.name }님 환영합니다.</p>
 	<p>
-		<a href="<c:url value='/member' />">[회원정보]</a>
+		<a href="<c:url value='/member/${authInfo.id}' />">[회원정보]</a>
 		<a href="<c:url value='/logout' />">[로그아웃]</a>
 	</p>
 	</c:if>
