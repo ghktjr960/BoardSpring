@@ -49,7 +49,7 @@
 			<bean class="interceptor.AuthCheckInterceptor"/>
 		</mvc:interceptor>
 		<mvc:interceptor>
-			<mvc:mapping path="/delete/**"/>
+			<mvc:mapping path="/deleteMember"/>
 			<bean class="interceptor.AuthCheckInterceptor"/>
 		</mvc:interceptor>
 	</mvc:interceptors>

@@ -48,9 +48,6 @@ public class DeleteMemberController {
 			e.printStackTrace();
 			errors.rejectValue("password", "notMatching");
 			return "/delete/deleteForm";
-		} catch (NullPointerException e) {
-			e.printStackTrace();
-			return "/delete/deleteForm";
-		}
+		} 
 	}
 }
