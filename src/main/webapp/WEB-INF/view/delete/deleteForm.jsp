@@ -28,6 +28,7 @@
 	</p>
 	<p>
 		<input type="password" name="password" placeholder="비밀번호를 입력하세요">
+		<form:errors path="password"/>
 	</p>
 	<input type="submit" value="<spring:message code="delete.btn"/>">
 	<button onclick="window.location='<c:url value="/" />'"><spring:message code="go.main"/></button>

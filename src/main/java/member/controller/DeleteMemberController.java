@@ -46,6 +46,7 @@ public class DeleteMemberController {
 			return "/delete/deleteSuccess";
 		} catch (IdPasswordNotMatchingException e) {
 			e.printStackTrace();
+			errors.rejectValue("password", "notMatching");
 			return "/delete/deleteForm";
 		} catch (NullPointerException e) {
 			e.printStackTrace();

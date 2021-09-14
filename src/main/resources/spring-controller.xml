@@ -43,6 +43,17 @@
 		<property name="deleteMemberService" ref="deleteMemberService" />
 	</bean>
 	
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/edit/**"/>
+			<bean class="interceptor.AuthCheckInterceptor"/>
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/delete/**"/>
+			<bean class="interceptor.AuthCheckInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
 </beans>
 
 
