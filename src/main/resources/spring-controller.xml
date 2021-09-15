@@ -54,6 +54,10 @@
 		</mvc:interceptor>
 	</mvc:interceptors>
 	
+	<bean class="board.controller.ListController">
+		<property name="boardDao" ref="boardDao"/>
+	</bean>
+	
 </beans>
 
 

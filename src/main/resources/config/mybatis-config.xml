@@ -8,5 +8,9 @@
 		<setting name="useGeneratedKeys" value="false" />
 		<setting name="mapUnderscoreToCamelCase" value="true" />
 	</settings>
-	<typeAliases><typeAlias alias="memberVo" type="member.model.MemberVo"  /></typeAliases>
+	<typeAliases>
+		<typeAlias alias="memberVo" type="member.model.MemberVo"/>
+		<typeAlias alias="boardVo" type="board.model.BoardVo"/>
+		<typeAlias alias="boardUploadVo" type="board.model.BoardUploadVo"/>
+	</typeAliases>
 </configuration>

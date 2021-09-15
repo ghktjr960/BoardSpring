@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="boardDao">
+	<select id="selectPostCount" resultType="Integer">
+		select count(*) from BOARD
+	</select>
+	
+	<select id="selectPostList" parameterType="HashMap" resultType="boardVo">
+		select * from
+		(select ROWNUM RNUM, NUM, WRITER, SUBJECT, READCOUNT, REF, STEP, DEPTH, REGDATE, CONTENT from 
+		(select * from BOARD order by REF DESC, STEP ASC)) where RUNM <![CDATA[>=]]> #{startNum} and RNUM <![CDATA[<=]]> #{endNum}
+	</select>
+	
+	<select id="selectMaxNum" resultType="Integer">
+		select max(NUM) from BOARD
+	</select>
+	
+	<update id="replyInsertStep" parameterType="HashMap">
+		update BOARD set STEP = STEP + 1 where REF = #{ref} and STEP > #{step}
+	</update>
+	
+	<insert id="insertPost" parameterType="boardVo">
+		insert into BOARD(NUM, WRITER, SUBJECT, REGDATE, REF, STEP, DEPTH, CONTENT)
+		values(BOARD_SEQ.nextval, #{writer}, #{subject}, #{regdate}, #{ref}, #{step}, #{depth}, #{content})
+	</insert>
+	
+	<insert id="insertboardUploadVo" parameterType="boardUploadVo">
+		insert into UPLOAD(NYM, FILENAME, CONTENTTYPE, FILSIZE) 
+		values(BOARD_SEQ.currval, #{fileName}, #{contentType}, #{fileSize})
+	</insert>
+	
+	<update id="updateReadCount" parameterType="Integer">
+		update BOARD set READCOUNT = READCOUNT+1 where NUM = #{num}
+	</update>
+	
+	<select id="selectPost" parameterType="Integer" resultType="boardVo">
+		select * form BOARD where NUM = #{num}
+	</select>
+	
+	<select id="selectUpload" parameterType="Integer" resultType="boardUploadVo">
+		select * from UPLOAD where NUM = #{num}
+	</select>
+	
+	<update id="updatePosting" parameterType="boardVo">
+		update BOARD set SUBJECT = #{subject}, CONTENT = #{content} where NUM = #{num}
+	</update>
+	
+	<update id="updateUploading" parameterType="boardUploadVo">
+		update UPLOAD set FILENAME = #{fileName}, CONTENTTYPE = #{contentType}, FILESIZE = #{fileSize} where NUM = #{num}
+	</update>
+	
+	<delete id="deletePost" parameterType="Integer">
+		delete from BOARD where NUM = #{num}
+	</delete>
+	
+	<delete id="deleteUpload" parameterType="Integer">
+		delete from UPLOAD where NUM = #{num}
+	</delete>
+</mapper>

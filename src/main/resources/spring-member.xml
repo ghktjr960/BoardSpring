@@ -35,6 +35,7 @@
 		<property name="mapperLocations">
 			<list>
 				<value>classpath:config/sqlmap-member.xml</value>
+				<value>classpath:config/sqlmap-board.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -71,5 +72,8 @@
 		<property name="memberDao" ref="memberDao"/>
 	</bean>
 	
+	<bean id="boardDao" class="board.model.BoardDaoImpl">
+		<constructor-arg ref="sqlSessionTemplate"/>
+	</bean>
 	
 </beans>
